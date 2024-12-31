@@ -7,7 +7,7 @@ function PlayerList({ players }) {
             <ul className="text-gray-300">
                 {players.map(player => (
                     <li key={player.id} className="mb-1 flex justify-between">
-                        <span className="font-black mr-5">{player.name}:</span> 
+                        <span className="font-black mr-5">{player.uname}:</span> 
                         <span className="italic text-right opacity-50 whitespace-nowrap">{player.role}</span>
                     </li>
                 ))}
@@ -20,7 +20,7 @@ PlayerList.propTypes = {
     players: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
-            name: PropTypes.string.isRequired,
+            uname: PropTypes.string.isRequired,
             role: PropTypes.string.isRequired
         })
     ).isRequired

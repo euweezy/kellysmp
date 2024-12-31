@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import Announcement from './Announcement';
 import PlayerList from './PlayerList';
+import LocationsList from './Locations'
+import { Tab, TabPanel } from './Tabs'
 
 function App() {
   useEffect(() => {
@@ -23,12 +25,30 @@ function App() {
   ]);
 
   const [players] = useState([
-    { id: 1, name: "The_Kelly", role: "Owner" },
-    { id: 2, name: "GasGasGonna", role: "Asshole" },
-    { id: 3, name: "EuweeAsian", role: "IT Department" },
+    { id: 1, uname: "The_Kelly", role: "Owner" },
+    { id: 2, uname: "GasGasGonna", role: "Panday" },
+    { id: 3, uname: "EuweeAsian", role: "IT Department" },
+  ]);
+
+  const [locations] = useState([
+    {
+      id: 1,
+      pname: "Spawn",
+      description: "Where all great things begin.",
+      coordinates: "x-100 y-64 z-200",
+      owner: "N/A"
+    },
+    {
+      id: 2,
+      pname: "The josh cave",
+      description: "josh cyril tito mola dealca",
+      coordinates: "unknown.",
+      owner: "Awohi1"
+    }
   ]);
 
   return (
+    
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white p-8 relative">
       <div className="max-w-4xl mx-auto h-full overflow-y-auto">
         {/* Header */}
@@ -37,20 +57,41 @@ function App() {
           <p className="text-gray-400">Welcome to our server!</p>
         </header>
 
-        {/* Announcements Section */}
-        <div className="bg-gray-800/50 rounded-xl p-6 backdrop-blur-sm shadow-xl mb-8">
-          <h2 className="text-2xl font-bold mb-6 text-purple-400">Announcements</h2>
-          <div className="space-y-4">
-            {announcements.map((announcement) => (
-              <Announcement
-                key={announcement.id}
-                title={announcement.title}
-                content={announcement.content}
-                date={announcement.date}
-              />
-            ))}
-          </div>
-        </div>
+        <Tab>
+          <TabPanel title="Announcements">
+            {/* Announcements Section */}
+            <div className="bg-gray-800/50 rounded-xl p-6 backdrop-blur-sm shadow-xl mb-8">
+              <h2 className="text-2xl font-bold mb-6 text-purple-400">Announcements</h2>
+              <div className="space-y-4">
+                {announcements.map((announcement) => (
+                  <Announcement
+                    key={announcement.id}
+                    title={announcement.title}
+                    content={announcement.content}
+                    date={announcement.date}
+                  />
+                ))}
+              </div>
+            </div>
+          </TabPanel>
+          <TabPanel title="Locations">
+            {/* Locations Section */}
+            <div className="bg-gray-800/50 rounded-xl p-6 backdrop-blur-sm shadow-xl mb-8">
+              <h2 className="text-2xl font-bold mb-6 text-purple-400">Locations</h2>
+              <div className="space-y-4">
+                {locations.map((location) => (
+                  <LocationsList 
+                    key={location.id}
+                    pname={location.pname}
+                    description={location.description}
+                    coordinates={location.coordinates}
+                    owner={location.owner}
+                  />
+                ))}
+              </div>
+            </div>
+          </TabPanel>
+        </Tab>
       </div>
 
       {/* Player List */}
