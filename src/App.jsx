@@ -3,6 +3,7 @@ import Announcement from './Announcement';
 import PlayerList from './PlayerList';
 import LocationsList from './Locations'
 import { Tab, TabPanel } from './Tabs'
+import discordLogo from '../icons/discord-logo-white.svg'
 
 function App() {
   useEffect(() => {
@@ -50,6 +51,15 @@ function App() {
     }
   ]);
 
+  const handleLink = () => {
+    navigator.clipboard.writeText('kellyisthegreatest.apexmc.co');
+    alert('Server IP copied to clipboard!');
+  }
+
+  const handleDiscord = () => {
+    window.open('https://discord.gg/TKNyFvtJfc', '_blank')
+  };
+
   return (
     
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white p-8 relative">
@@ -58,6 +68,22 @@ function App() {
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4 text-purple-400">Kelly SMP</h1>
           <p className="text-gray-400">Welcome to our server!</p>
+
+          {/* Global Buttons */}
+          <div className="flex gap-4 justify-center mt-6">
+          <button 
+          onClick={handleDiscord}
+          className="font-gg bg-gradient-to-r from-[#5865f2] via-[#404eed] to-[#7289da] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-[#5865f2]/50 dark:focus:ring-[#404eed]/80 shadow-lg shadow-[#5865f2]/50 dark:shadow-lg dark:shadow-[#404eed]/80 text-white font-medium rounded-lg text-[16px] px-6 py-2 text-center w-48 h-12 transition-all duration-300">
+          <img src={discordLogo} alt="Discord Logo" className="trasnform scale-80 mr-2"/>
+        </button>
+
+        <button
+          onClick={handleLink}
+          className="text-white bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-[16px] px-4 py-2 text-center w-48 h-12">
+          Copy Server IP
+        </button>
+
+          </div>
         </header>
 
         <Tab>

@@ -1,4 +1,10 @@
+@font-face {
+    font-family: 'GG-Sans';
+    src: url('../fonts/gg-sans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
