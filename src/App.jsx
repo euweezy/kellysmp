@@ -4,6 +4,7 @@ import PlayerList from './PlayerList';
 import LocationsList from './Locations'
 import { Tab, TabPanel } from './Tabs'
 import discordLogo from '../icons/discord-logo-white.svg'
+import CustomButton from './CustomButton';
 
 function App() {
   useEffect(() => {
@@ -74,14 +75,14 @@ function App() {
           <button 
           onClick={handleDiscord}
           className="font-gg bg-gradient-to-r from-[#5865f2] via-[#404eed] to-[#7289da] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-[#5865f2]/50 dark:focus:ring-[#404eed]/80 shadow-lg shadow-[#5865f2]/50 dark:shadow-lg dark:shadow-[#404eed]/80 text-white font-medium rounded-lg text-[16px] px-6 py-2 text-center w-48 h-12 transition-all duration-300">
-          <img src={discordLogo} alt="Discord Logo" className="trasnform scale-80 mr-2"/>
+          <img src={discordLogo} alt="Discord Logo" className="transform scale-80 mr-2"/>
         </button>
 
-        <button
+        <CustomButton 
+          text="Copy Server IP"
           onClick={handleLink}
-          className="text-white bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-[16px] px-4 py-2 text-center w-48 h-12">
-          Copy Server IP
-        </button>
+          variant='primary'
+        />
 
           </div>
         </header>
@@ -89,6 +90,14 @@ function App() {
         <Tab>
           <TabPanel title="Announcements">
             {/* Announcements Section */}
+
+            {/* Add Announcement Button */}
+            <div className="flex gap-4 mb-6">
+              <CustomButton 
+                text="Add Announcements"
+                variant='primary'
+              />
+            </div>
             <div className="bg-gray-800/50 rounded-xl p-6 backdrop-blur-sm shadow-xl mb-8">
               <h2 className="text-2xl font-bold mb-6 text-purple-400">Announcements</h2>
               <div className="space-y-4">

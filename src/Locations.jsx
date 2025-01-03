@@ -6,7 +6,7 @@ function LocationsList({ pname, description, coordinates, owner }) {
       <h3 className="font-bold text-lg text-purple-300 mb-2">{pname}</h3>
       <p className="text-gray-300 mb-3 italic">{description}</p>
       <span className="text-sm gray-400/50 italic">{coordinates}</span>
-      <p className="text-gray-300 mb-3">Owned by: {owner}</p>
+      <p className="text-sm text-gray-400 mt-3">Owned by: {owner}</p>
     </div>
   );
 }
