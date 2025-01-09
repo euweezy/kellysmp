@@ -6,7 +6,7 @@ export function Tab({ children }) {
 
     return (
         <div className="tabs">
-            <div className="tab-list flex border-b border-gray-700 mb-4">
+            <div className="tab-list flex border-b border-gray-700 mb-4 overflow-visible">
                 {children.map((child, index) => (
                     <button 
                         key={index}
@@ -14,7 +14,7 @@ export function Tab({ children }) {
                         className={`px-4 py-2 ${
                             index === activeTab
                                 ? "text-purple-400 border-b-2 border-purple-400"
-                                : "text-gray-400 hover:text-purple-300"
+                                : "text-gray-400 hover:text-purple-300 transition-all duration-200"
                         }`}
                     >
                         {child.props.title}
