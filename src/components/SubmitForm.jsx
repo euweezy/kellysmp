@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import CustomButton from "./CustomButton";
 
 function SubmitForm({ title, body }) {
+
   return (
     <div className="bg-gray-800/50 rounded-xl p-6 backdrop-blur-sm shadow-xl mb-8">
       <div className="mb-4">

@@ -1,59 +1,24 @@
 import { useState, useEffect } from 'react';
-import Announcement from './Announcement';
-import PlayerList from './PlayerList';
-import LocationsList from './Locations'
-import { Tab, TabPanel } from './Tabs'
-import discordLogo from '../icons/discord-logo-white.svg'
-import SubmitForm from './SubmitForm';
-import CustomButton from './CustomButton';
+import Announcement from './components/Announcement';
+import PlayerList from './components/PlayerList';
+import LocationsList from './components/Locations'
+import { Tab, TabPanel } from './components/Tabs'
+import discordLogo from './assets/discord-logo-white.svg'
+import SubmitForm from './components/SubmitForm';
+import CustomButton from './components/CustomButton';
 import { HiMenu } from 'react-icons/hi';
-
+import playersData from './data/players';
+import announcementsData from './data/announcements';
+import locationsData from './data/locations';
 
 function App() {
   useEffect(() => {
     document.body.style.backgroundColor = "#111827";
   });
 
-  const [announcements] = useState([
-    {
-      id: 1,
-      title: "Welcome to Kelly SMP!",
-      content: "Server rules: No griefing, be respectful, have fun!",
-      date: "Dec 30, 2024",
-    },
-    {
-      id: 2,
-      title: "Carlos Sand",
-      content: "Carlos has been banned for griefing.",
-      date: "Dec 31, 2024",
-    },
-  ]);
-
-  const [players] = useState([
-    { id: 1, uname: "The_Kelly", role: "Owner" },
-    { id: 2, uname: "GasGasGonna", role: "Panday" },
-    { id: 3, uname: "EuweeAsian", role: "IT Department" },
-    { id: 4, uname: "Awohi1", role: "Batman" },
-    { id: 5, uname: "GoyaChocolate", role: "Slave"},
-    { id: 6, uname: "LittleClevie", role: "firstcottonman"}
-  ]);
-
-  const [locations] = useState([
-    {
-      id: 1,
-      pname: "Spawn",
-      description: "Where all great things begin.",
-      coordinates: "x-100 y-64 z-200",
-      owner: "N/A"
-    },
-    {
-      id: 2,
-      pname: "The josh cave",
-      description: "josh cyril tito mola dealca",
-      coordinates: "Nether: X:-6 Y:52 Z:21",
-      owner: "Awohi1"
-    }
-  ]);
+  const [locations, setLocations] = useState(locationsData);
+  const [announcements, setAnnouncements] = useState(announcementsData);
+  const [players, setPlayers] = useState(playersData);
 
   const [showForm, setShowForm] = useState(false);
   const [showPlayerList, setShowPlayerList] = useState(false);
@@ -100,16 +65,13 @@ function App() {
         />
 
           </div>
-
             <button
               onMouseEnter={handlePlayerList}
               onMouseLeave={handlePlayerList}
               className="absolute right-5 top-5 w-10 h-10 rounded-full bg-gradient-to-t from-gray800 to gray-900 flex items-center justify-center outline outline-2 outline-purple-400 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300">
                 <HiMenu className='text-white text-lg' />
               </button>
-          
-          {showPlayerList && <div className="absolute top-10 right-0 w-72 h-min mt-5 overflow-y-auto p-4"><PlayerList players={players} /></div>}
-
+            {showPlayerList && <div className="absolute top-10 right-0 w-72 h-min mt-5 overflow-y-auto p-4"><PlayerList players={players} /></div>}
         </header>
 
         <Tab>
